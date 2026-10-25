@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Hand Gesture Control - User Guide</title>
+<style>
+  @page { size: A4 landscape; margin: 10mm; }
+  * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { margin: 0; font-family: "Segoe UI", Arial, sans-serif; color: #1d2433; font-size: 9.8pt; }
+  .page { page-break-after: always; }
+  .page:last-child { page-break-after: auto; }
+  header { display: flex; justify-content: space-between; align-items: flex-end;
+           border-bottom: 3px solid #2f6fed; padding-bottom: 6px; margin-bottom: 10px; }
+  h1 { margin: 0; font-size: 21pt; color: #13306b; }
+  .sub { color: #5b6478; font-size: 10pt; }
+  h2 { font-size: 12.5pt; margin: 10px 0 6px; color: #2f6fed; text-transform: uppercase; letter-spacing: .04em; }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 7px; }
+  .grid.three { grid-template-columns: repeat(3, 1fr); }
+  .card { border: 1px solid #d5dbe8; border-radius: 9px; padding: 5px 8px; display: flex; gap: 8px;
+          align-items: flex-start; background: #fff; break-inside: avoid; }
+  .emoji { font-family: "Segoe UI Emoji", "Noto Color Emoji", sans-serif; font-size: 19pt; line-height: 1.1;
+           width: 56px; flex: none; text-align: center; white-space: nowrap; letter-spacing: -2px; }
+  .name { font-weight: 700; font-size: 10.5pt; }
+  .how { color: #4a5368; margin: 0 0 3px; line-height: 1.25; }
+  h2 { margin: 7px 0 5px !important; }
+  header { margin-bottom: 6px !important; }
+  .act { display: inline-block; background: #e8f0ff; color: #1748b8; border-radius: 5px; padding: 1px 6px; font-weight: 600; }
+  .hold { display: inline-block; background: #fff4dc; color: #8a5a00; border-radius: 5px; padding: 1px 6px; margin-left: 3px; font-size: 9pt; }
+  .card.mouse { border-left: 5px solid #2f6fed; }
+  .card.move { border-left: 5px solid #13a36a; }
+  .card.keys { border-left: 5px solid #e08600; }
+  .card.ctrl { border-left: 5px solid #d43f3f; }
+  table { border-collapse: collapse; width: 100%; font-size: 10pt; }
+  th, td { border: 1px solid #d5dbe8; padding: 4px 7px; text-align: left; vertical-align: top; }
+  th { background: #13306b; color: #fff; font-weight: 600; }
+  tr:nth-child(even) td { background: #f5f7fc; }
+  kbd { font-family: Consolas, monospace; background: #eef1f7; border: 1px solid #c9d0de; border-bottom-width: 2px;
+        border-radius: 4px; padding: 0 5px; font-size: 9.5pt; }
+  .cols { display: grid; grid-template-columns: 1.15fr 1fr; gap: 14px; }
+  ul { margin: 4px 0; padding-left: 18px; }
+  li { margin: 2px 0; }
+  .note { background: #f5f7fc; border-radius: 8px; padding: 7px 10px; }
+  .warn { background: #fff0f0; border-radius: 8px; padding: 7px 10px; }
+  footer { margin-top: 8px; color: #8a92a6; font-size: 8.5pt; text-align: right; }
+</style>
+<style>
+  .steps { counter-reset: s; list-style: none; padding-left: 0; margin: 4px 0 8px; }
+  .steps > li { counter-increment: s; position: relative; padding-left: 30px; margin: 5px 0; line-height: 1.35; }
+  .steps > li::before { content: counter(s); position: absolute; left: 0; top: 0; width: 21px; height: 21px;
+       border-radius: 50%; background: #2f6fed; color: #fff; font-weight: 700; font-size: 9.5pt;
+       display: flex; align-items: center; justify-content: center; }
+  .box { border: 1px solid #d5dbe8; border-radius: 10px; padding: 8px 12px; margin-bottom: 9px; break-inside: avoid; }
+  .box h3 { margin: 0 0 4px; font-size: 12pt; color: #13306b; }
+  .e { font-family: "Segoe UI Emoji", sans-serif; }
+  .tip { background: #eefaf3; border-left: 4px solid #13a36a; border-radius: 6px; padding: 5px 9px; margin: 5px 0; }
+  .mode { display: inline-block; font-weight: 700; padding: 0 7px; border-radius: 5px; color: #fff; }
+  .red { background: #d43f3f; } .green { background: #13a36a; }
+  .cols3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+  .cols2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  p { margin: 3px 0; line-height: 1.35; }
+</style>
+</head>
+<body>
+
+<!-- ============================ GUIDE PAGE 1 ============================ -->
+<section class="page">
+  <header>
+    <div>
+      <h1>Hand Gesture Control - User Guide</h1>
+      <div class="sub">Control your Windows PC with your hand and a webcam. Everything runs on your PC - no video is saved or sent anywhere.</div>
+    </div>
+    <div class="sub">Part 1 &middot; Getting started</div>
+  </header>
+
+  <div class="cols3">
+    <div>
+      <div class="box">
+        <h3>1. Start the app</h3>
+        <ol class="steps">
+          <li>Close other apps that use the camera (Zoom, Teams, Camera app).</li>
+          <li>Double-click the <b>Hand Gesture Control</b> icon on your Desktop (blue circle with a white hand).<br>
+            <span class="sub">No icon? Open <b>C:\Users\SUHAIL KHAN\hand-gesture-control</b> and double-click <b>start.bat</b>.</span></li>
+          <li>Two windows open: a black <b>console</b> (shows a log of actions) and the <b>camera preview</b>. Keep both open.</li>
+          <li>The app starts <span class="mode red">PAUSED</span>. Hold an <b>open palm <span class="e">🖐️</span> for 1 second</b> - it turns <span class="mode green">ACTIVE</span>.</li>
+        </ol>
+      </div>
+      <div class="box">
+        <h3>2. Where to put your hand</h3>
+        <ul>
+          <li>Sit <b>50-80 cm</b> from the camera, palm facing it.</li>
+          <li>Keep your hand inside the <b>yellow rectangle</b> in the preview. That rectangle = your whole screen, so small moves are enough.</li>
+          <li>Good light on your hand helps a lot.</li>
+          <li>Your <b>right hand</b> controls; your <b>left hand</b> takes over if the right one is out of view. The hand in control is drawn <b>blue</b>, an ignored hand <b>grey</b>.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div>
+      <div class="box">
+        <h3>3. PAUSED and ACTIVE - what they mean</h3>
+        <table>
+          <tr><th>Mode</th><th>What happens</th></tr>
+          <tr><td><span class="mode red">PAUSED</span></td><td>The app sees your hand but <b>ignores it</b>. Cursor does not move, nothing is clicked.</td></tr>
+          <tr><td><span class="mode green">ACTIVE</span></td><td>Your gestures <b>control the PC</b>.</td></tr>
+        </table>
+        <p style="margin-top:6px">It is a safety switch: pause it to scratch your head, drink water, or talk with your hands without clicking things.</p>
+        <p>The mode is shown in the <b>top-left corner</b> of the preview.</p>
+      </div>
+      <div class="box">
+        <h3>4. Switch between them</h3>
+        <table>
+          <tr><th>To</th><th>Gesture</th><th>Keyboard</th></tr>
+          <tr><td><span class="mode red">PAUSE</span></td><td>Fist <span class="e">✊</span> - hold <b>1 s</b></td><td><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>P</kbd></td></tr>
+          <tr><td><span class="mode green">RESUME</span></td><td>Open palm <span class="e">🖐️</span> - hold <b>1 s</b></td><td><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>P</kbd></td></tr>
+        </table>
+        <p style="margin-top:6px">While you hold, a <b>yellow progress bar</b> fills on the right. Open your hand before it is full to cancel.</p>
+      </div>
+    </div>
+
+    <div>
+      <div class="box">
+        <h3>5. Why did it pause by itself?</h3>
+        <ul>
+          <li>It <b>always starts paused</b>.</li>
+          <li>Your hand rested in a <b>loose fist</b> for over a second - that counts as the pause gesture.</li>
+          <li>You pressed <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>P</kbd>.</li>
+        </ul>
+        <div class="tip">Not using it for a moment? Just move your hand <b>out of the camera view</b>. No hand = nothing happens.</div>
+      </div>
+      <div class="box">
+        <h3>6. Stop the app</h3>
+        <ul>
+          <li><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Q</kbd> (works anywhere)</li>
+          <li>or <kbd>Esc</kbd> while the preview window is selected</li>
+          <li>or close the preview window with its <b>X</b></li>
+        </ul>
+        <p><b>Emergency stop:</b> push your <b>real mouse</b> into any screen corner - the app stops immediately.</p>
+      </div>
+      <div class="box">
+        <h3>7. Helpers</h3>
+        <ul>
+          <li>Press <kbd>H</kbd> in the preview: list of all gestures.</li>
+          <li><b>start-dry-run.bat</b>: practice mode, shows gestures but clicks nothing.</li>
+          <li><b>calibrate.bat</b>: measures your hand so gestures fit you better.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <footer>Part 1 of 3 &middot; Hand Gesture Control</footer>
+</section>
+
+<!-- ============================ GUIDE PAGE 2 ============================ -->
+<section class="page">
+  <header>
+    <div><h1>Step by step: everyday tasks</h1>
+      <div class="sub">Make sure the preview shows <b>ACTIVE</b> (green) before you start.</div></div>
+    <div class="sub">Part 2 &middot; Folders, scrolling, files</div>
+  </header>
+
+  <div class="cols2">
+    <div>
+      <div class="box">
+        <h3><span class="e">📁</span> Open a folder</h3>
+        <ol class="steps">
+          <li><b>Point <span class="e">☝️</span></b> (index finger up, others folded). Move your hand slowly - the cursor follows your fingertip.</li>
+          <li>Stop with the cursor <b>on the folder icon</b>. Keep your hand still.</li>
+          <li><b>Two quick pinches <span class="e">🤏🤏</span></b>: touch thumb + index tips, open, touch, open - as fast as a mouse double click.</li>
+          <li>The folder opens. The preview shows <b>LEFT CLICK</b> then <b>DOUBLE CLICK</b>.</li>
+        </ol>
+        <div class="tip">The cursor <b>freezes</b> while your fingers close, so it will not slide off the icon.<br>
+          <b>Other way:</b> one pinch to select the folder, then <b>thumbs up <span class="e">👍</span> (hold 0.7 s)</b> = Enter = open.</div>
+        <p><b>Only one click happened?</b> Pinch faster. &nbsp; <b>It said DRAG?</b> You held the pinch too long - make it a quick tap.</p>
+      </div>
+
+      <div class="box">
+        <h3><span class="e">🗂️</span> Drag a file to another folder</h3>
+        <ol class="steps">
+          <li><b>Point <span class="e">☝️</span></b> the cursor onto the file.</li>
+          <li><b>Pinch and keep holding <span class="e">🤏</span></b> for about half a second - the preview shows <b>DRAG</b>.</li>
+          <li>Still pinching, move your hand - the file moves with the cursor.</li>
+          <li>Over the target folder, <b>open your fingers</b> - the file is dropped (<b>DROP</b>).</li>
+        </ol>
+        <div class="tip">If your hand leaves the camera while dragging, the file is let go automatically.</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="box">
+        <h3><span class="e">↕️</span> Scroll up and down (folder, web page, document)</h3>
+        <ol class="steps">
+          <li><b>Point <span class="e">☝️</span></b> the cursor onto the <b>area you want to scroll</b> (the file list, the web page). Windows scrolls whatever is under the cursor.</li>
+          <li>Make the <b>V sign <span class="e">✌️</span></b> (index + middle up) and <b>hold still a moment</b> - this height becomes your <b>starting point</b>.</li>
+          <li>Move your hand up or down:</li>
+        </ol>
+        <table>
+          <tr><th>You do</th><th>Result</th></tr>
+          <tr><td>Hand <b>a little up</b> from the start point</td><td>Scrolls <b>up</b> slowly</td></tr>
+          <tr><td>Hand <b>further up</b></td><td>Scrolls <b>up faster</b></td></tr>
+          <tr><td>Hand <b>down</b> from the start point</td><td>Scrolls <b>down</b> (further = faster)</td></tr>
+          <tr><td>Hand <b>back to the start point</b></td><td>Scrolling <b>stops</b></td></tr>
+          <tr><td>Change gesture (e.g. back to <span class="e">☝️</span>)</td><td>Scrolling <b>stops</b> completely</td></tr>
+        </table>
+        <div class="tip">It works like a <b>joystick</b>: hold your hand above the start point and it keeps scrolling. Tiny shakes near the start point do nothing.</div>
+      </div>
+
+      <div class="box">
+        <h3><span class="e">📋</span> Right-click menu</h3>
+        <ol class="steps">
+          <li><b>Point <span class="e">☝️</span></b> at the item (file, desktop, text).</li>
+          <li>Touch <b>thumb + middle finger</b> tips <span class="e">👌</span> - the menu opens.</li>
+          <li>Point at a menu entry and <b>pinch once <span class="e">🤏</span></b> to choose it.</li>
+        </ol>
+      </div>
+
+      <div class="box">
+        <h3><span class="e">📌</span> Example: open Documents and scroll down</h3>
+        <p><span class="e">🖐️</span> hold 1 s &rarr; ACTIVE &nbsp;&rarr;&nbsp; <span class="e">☝️</span> cursor on <b>Documents</b> &nbsp;&rarr;&nbsp; <span class="e">🤏🤏</span> opens
+          &nbsp;&rarr;&nbsp; <span class="e">☝️</span> cursor on the file list &nbsp;&rarr;&nbsp; <span class="e">✌️</span> hold, then lower hand = scroll down
+          &nbsp;&rarr;&nbsp; raise back = stop &nbsp;&rarr;&nbsp; <span class="e">✊</span> hold 1 s = PAUSED</p>
+      </div>
+    </div>
+  </div>
+  <footer>Part 2 of 3 &middot; Hand Gesture Control</footer>
+</section>
+
+<!-- ============================ GUIDE PAGE 3 ============================ -->
+<section class="page">
+  <header>
+    <div><h1>More things you can do</h1>
+      <div class="sub">Zoom, 3D, music, swipes and shortcuts - plus quick fixes.</div></div>
+    <div class="sub">Part 3 &middot; Beyond the mouse</div>
+  </header>
+
+  <div class="cols3">
+    <div>
+      <div class="box">
+        <h3><span class="e">🌍</span> Google Earth Pro / maps / 3D</h3>
+        <ul>
+          <li><b>Zoom:</b> three fingers <span class="e">🖖</span>, move hand up = zoom in, down = zoom out.</li>
+          <li><b>Zoom like VR:</b> pinch with <b>both hands <span class="e">🙌</span></b>, pull apart = in, push together = out.</li>
+          <li><b>Move the map:</b> pinch &amp; hold <span class="e">🤏</span> and move (drags the globe).</li>
+          <li><b>Tilt / rotate:</b> four fingers <span class="e">🤚</span> (thumb folded), move your hand.</li>
+        </ul>
+        <div class="tip">The app notices Google Earth and Blender automatically and uses the right zoom for them.</div>
+      </div>
+      <div class="box">
+        <h3><span class="e">🔎</span> Zoom in a browser, Word, photos</h3>
+        <p>Three fingers <span class="e">🖖</span> up/down = <b>Ctrl + mouse wheel</b> zoom. Put the cursor over the page first.</p>
+      </div>
+    </div>
+
+    <div>
+      <div class="box">
+        <h3><span class="e">🎵</span> Music, video &amp; volume</h3>
+        <ul>
+          <li><b>Volume:</b> call-me sign <span class="e">🤙</span> (thumb + pinky out), move hand up = louder, down = quieter.</li>
+          <li><b>Play / Pause:</b> rock sign <span class="e">🤘</span> (index + pinky up), hold 0.6 s.</li>
+        </ul>
+      </div>
+      <div class="box">
+        <h3><span class="e">👋</span> Swipes (open palm, quick flick)</h3>
+        <table>
+          <tr><th>Swipe</th><th>Normally</th><th>In a browser</th></tr>
+          <tr><td>&larr;</td><td>Switch app</td><td>Back</td></tr>
+          <tr><td>&rarr;</td><td>Switch app</td><td>Forward</td></tr>
+          <tr><td>&uarr;</td><td>Task view</td><td>Task view</td></tr>
+          <tr><td>&darr;</td><td>Show desktop</td><td>Show desktop</td></tr>
+        </table>
+        <p style="margin-top:5px">In <b>PowerPoint</b>: &larr; / &rarr; = previous / next slide. A still palm never swipes.</p>
+      </div>
+      <div class="box">
+        <h3><span class="e">⌨️</span> Keys &amp; shortcuts (hold the gesture)</h3>
+        <ul>
+          <li>Thumbs up <span class="e">👍</span> 0.7 s = <b>Enter</b></li>
+          <li>Thumbs down <span class="e">👎</span> 0.8 s = <b>on-screen keyboard</b></li>
+          <li>Pinky only 0.8 s = <b>screenshot</b> (Win+Shift+S)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div>
+      <div class="box">
+        <h3><span class="e">🛠️</span> Something not working?</h3>
+        <table>
+          <tr><th>Problem</th><th>Try this</th></tr>
+          <tr><td>"Could not open camera"</td><td>Close Zoom/Teams/Camera app; check Windows camera privacy settings.</td></tr>
+          <tr><td>Nothing happens</td><td>Is it <b>PAUSED</b>? Hold open palm 1 s. Is your hand inside the yellow rectangle?</td></tr>
+          <tr><td>Pauses by itself</td><td>Do not rest a closed hand in view; move it away instead.</td></tr>
+          <tr><td>Clicks become drags</td><td>Pinch quicker (a short tap).</td></tr>
+          <tr><td>Gestures too easy / too hard</td><td>Run <b>calibrate.bat</b>.</td></tr>
+          <tr><td>Cursor shaky</td><td>Better light, hand closer, keep it inside the rectangle.</td></tr>
+          <tr><td>Scroll too fast / wrong way</td><td>Change <code>scroll.speed</code> / <code>scroll.invert</code> in config.json.</td></tr>
+          <tr><td>Wrong hand controls</td><td>Change <code>tracking.hand</code> in config.json.</td></tr>
+        </table>
+      </div>
+      <div class="box">
+        <h3><span class="e">🔒</span> Privacy</h3>
+        <p>The camera image is processed on your PC and thrown away right after. Nothing is recorded, saved or uploaded.</p>
+      </div>
+    </div>
+  </div>
+  <footer>Part 3 of 3 &middot; the next two pages are the one-page cheat sheet</footer>
+</section>
+
+
+
+<!-- ============================ PAGE 1 ============================ -->
+<section class="page">
+  <header>
+    <div>
+      <h1>Hand Gesture Control - Cheat Sheet</h1>
+      <div class="sub">Control your mouse and keyboard with your hand through the webcam. 100% local, nothing is recorded.</div>
+    </div>
+    <div class="sub">Starts <b>PAUSED</b> - hold an open palm to begin</div>
+  </header>
+
+  <h2>Mouse</h2>
+  <div class="grid">
+    <div class="card mouse"><div class="emoji">☝️</div><div>
+      <div class="name">Point</div><div class="how">Index finger up, others down. Fingertip moves the cursor.</div>
+      <span class="act">Move cursor</span></div></div>
+    <div class="card mouse"><div class="emoji">🤏</div><div>
+      <div class="name">Pinch (tap)</div><div class="how">Quickly touch thumb + index tips, then open.</div>
+      <span class="act">Left click</span></div></div>
+    <div class="card mouse"><div class="emoji">🤏🤏</div><div>
+      <div class="name">Pinch twice</div><div class="how">Two quick pinches in a row.</div>
+      <span class="act">Double click</span></div></div>
+    <div class="card mouse"><div class="emoji">🤏⏳</div><div>
+      <div class="name">Pinch &amp; hold</div><div class="how">Hold thumb + index &gt; 0.4 s, move, open to drop.</div>
+      <span class="act">Drag &amp; drop</span></div></div>
+    <div class="card mouse"><div class="emoji">👌</div><div>
+      <div class="name">Middle pinch</div><div class="how">Touch thumb + <b>middle</b> fingertip.</div>
+      <span class="act">Right click</span></div></div>
+    <div class="card move"><div class="emoji">✌️</div><div>
+      <div class="name">V sign</div><div class="how">Index + middle up. Move hand up/down.</div>
+      <span class="act">Scroll</span></div></div>
+    <div class="card move"><div class="emoji">🖖</div><div>
+      <div class="name">Three fingers</div><div class="how">Index + middle + ring up. Move hand up/down.</div>
+      <span class="act">Zoom in / out</span></div></div>
+    <div class="card move"><div class="emoji">🤚</div><div>
+      <div class="name">Four fingers</div><div class="how">All fingers up, thumb folded. Move hand around.</div>
+      <span class="act">Rotate 3D view</span></div></div>
+    <div class="card move"><div class="emoji">🙌</div><div>
+      <div class="name">Two-hand zoom</div><div class="how">Pinch with <b>both</b> hands, pull apart / push.</div>
+      <span class="act">Zoom in / out</span></div></div>
+    <div class="card move"><div class="emoji">🤙</div><div>
+      <div class="name">Call-me sign</div><div class="how">Thumb + pinky out. Move hand up/down.</div>
+      <span class="act">Volume up / down</span></div></div>
+    <div class="card ctrl"><div class="emoji">✊</div><div>
+      <div class="name">Fist</div><div class="how">Close your whole hand and hold.</div>
+      <span class="act">Pause control</span><span class="hold">hold 1 s</span></div></div>
+    <div class="card ctrl"><div class="emoji">🖐️</div><div>
+      <div class="name">Open palm</div><div class="how">All 5 fingers spread, hold still.</div>
+      <span class="act">Resume control</span><span class="hold">hold 1 s</span></div></div>
+  </div>
+
+  <h2>Keys, media &amp; shortcuts</h2>
+  <div class="grid">
+    <div class="card keys"><div class="emoji">👍</div><div>
+      <div class="name">Thumbs up</div><div class="how">Fist with thumb pointing up.</div>
+      <span class="act">Enter</span><span class="hold">hold 0.7 s</span></div></div>
+    <div class="card keys"><div class="emoji">🤘</div><div>
+      <div class="name">Rock sign</div><div class="how">Index + pinky up, thumb folded.</div>
+      <span class="act">Play / Pause</span><span class="hold">hold 0.6 s</span></div></div>
+    <div class="card keys"><div class="emoji">👎</div><div>
+      <div class="name">Thumbs down</div><div class="how">Fist, thumb pointing down.</div>
+      <span class="act">On-screen keys</span><span class="hold">hold 0.8 s</span></div></div>
+    <div class="card keys"><div class="emoji">🤙</div><div>
+      <div class="name">Pinky only</div><div class="how">Only the little finger up, thumb folded.</div>
+      <span class="act">Screenshot</span><span class="hold">hold 0.8 s</span></div></div>
+  </div>
+
+  <h2>Swipes - open palm, quick flick (a still palm never swipes)</h2>
+  <div class="grid">
+    <div class="card keys"><div class="emoji">🖐️⬅️</div><div>
+      <div class="name">Swipe left</div><span class="act">Switch app</span></div></div>
+    <div class="card keys"><div class="emoji">🖐️➡️</div><div>
+      <div class="name">Swipe right</div><span class="act">Switch app</span></div></div>
+    <div class="card keys"><div class="emoji">🖐️⬆️</div><div>
+      <div class="name">Swipe up</div><span class="act">Task view</span></div></div>
+    <div class="card keys"><div class="emoji">🖐️⬇️</div><div>
+      <div class="name">Swipe down</div><span class="act">Show desktop</span></div></div>
+  </div>
+  <footer>Cheat sheet 1 of 2 &middot; press <kbd>H</kbd> in the preview window to see this list live</footer>
+</section>
+
+<!-- ============================ PAGE 2 ============================ -->
+<section class="page">
+  <header>
+    <div><h1>Apps, hotkeys &amp; tips</h1>
+      <div class="sub">Some gestures change automatically depending on the app in front (shown as "App profile" in the preview).</div></div>
+  </header>
+
+  <div class="cols">
+    <div>
+      <h2>Per-app profiles</h2>
+      <table>
+        <tr><th>App</th><th>What changes</th></tr>
+        <tr><td><b>Chrome, Edge, Firefox, Brave, Opera</b></td><td>Swipe ← = <b>Back</b>, swipe → = <b>Forward</b></td></tr>
+        <tr><td><b>PowerPoint</b></td><td>Swipe ← = <b>previous slide</b>, swipe → = <b>next slide</b></td></tr>
+        <tr><td><b>Google Earth Pro</b></td><td>3 fingers &amp; two-hand pinch = <b>zoom</b> (mouse wheel)<br>
+          4 fingers = <b>tilt / rotate</b> view &middot; Swipe ← → = move the view &middot; Pinch &amp; hold = drag the globe</td></tr>
+        <tr><td><b>Blender</b></td><td>3 fingers &amp; two-hand pinch = <b>zoom</b> &middot; 4 fingers = <b>orbit</b></td></tr>
+        <tr><td><b>Everything else</b></td><td>Default gestures from page 1 (3 fingers = Ctrl+wheel zoom)</td></tr>
+      </table>
+
+      <h2>Start &amp; stop</h2>
+      <table>
+        <tr><th>What</th><th>How</th></tr>
+        <tr><td>Start (real control)</td><td>Double-click <b>start.bat</b> - starts PAUSED, hold an open palm 🖐️</td></tr>
+        <tr><td>Test only (no clicks)</td><td>Double-click <b>start-dry-run.bat</b></td></tr>
+        <tr><td>Fit to your hand</td><td>Double-click <b>calibrate.bat</b> and follow the 4 steps</td></tr>
+        <tr><td>Quit instantly</td><td><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Q</kbd> &nbsp;or <kbd>Esc</kbd> in the preview</td></tr>
+        <tr><td>Pause / resume</td><td><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>P</kbd> &nbsp;or fist ✊ / open palm 🖐️</td></tr>
+        <tr><td>Gesture list</td><td><kbd>H</kbd> in the preview window</td></tr>
+        <tr><td>Emergency stop</td><td>Push the <b>real mouse</b> into any screen corner</td></tr>
+      </table>
+    </div>
+
+    <div>
+      <h2>Tips for best results</h2>
+      <ul>
+        <li>Sit <b>50-80 cm</b> from the camera, palm facing it.</li>
+        <li>Keep your hand inside the <b>yellow rectangle</b> - it covers the whole screen, no need to reach the edges.</li>
+        <li>Good, even <b>light</b> on your hand; avoid a bright window behind you.</li>
+        <li>A plain background helps tracking.</li>
+        <li><b>Right hand</b> is in control; your <b>left hand</b> takes over when the right one is out of view. The hand in control is drawn <b>blue</b>, an ignored hand <b>grey</b>.</li>
+        <li>Finger names on screen turn <b>green</b> when that finger counts as "up".</li>
+        <li>Make gestures clearly and hold them still for a moment - each gesture needs a few steady frames.</li>
+      </ul>
+
+      <h2>Reading the preview window</h2>
+      <ul>
+        <li><b>ACTIVE / PAUSED / DRY RUN</b> - top left</li>
+        <li><b>Gesture:</b> what it sees now &middot; <b>FPS</b> top right (25+ is good)</li>
+        <li><b>Yellow text</b> - the action just done (e.g. LEFT CLICK)</li>
+        <li><b>Progress bar</b> - a hold gesture charging up</li>
+        <li><b>Bottom lines</b> - fingers up, pinch distance, which hand</li>
+      </ul>
+
+      <h2>Something feels off?</h2>
+      <div class="note">
+        <b>Clicks become drags</b> &rarr; pinch quicker, or raise <code>timing.drag_hold_s</code>.<br>
+        <b>Gestures trigger too easily / too hard</b> &rarr; run <b>calibrate.bat</b>.<br>
+        <b>Cursor shaky / slow</b> &rarr; tune <code>smoothing</code> in config.json.<br>
+        <b>Turn a gesture off</b> &rarr; set it to <code>null</code> in <code>gesture_actions</code>.
+      </div>
+    </div>
+  </div>
+  <footer>Cheat sheet 2 of 2 &middot; all settings live in config.json</footer>
+</section>
+
+
+
+</body>
+</html>
