@@ -34,6 +34,7 @@
 - [Developer guide: add a new gesture or action](#developer-guide-add-a-new-gesture-or-action)
 - [Privacy](#privacy)
 - [Roadmap](#roadmap)
+- [Contributors](#contributors)
 - [License](#license)
 
 ---
@@ -433,6 +434,13 @@ Everything runs **locally on your PC**. Camera frames are processed in memory an
 - [ ] Custom gesture recorder (teach a new gesture by showing it)
 - [ ] On-screen gesture hints / onboarding tutorial
 - [ ] *Your unique features go here...*
+
+## Contributors
+
+| # | Contributor | Role |
+|---|---|---|
+| 1 | **Suhail Khan** ([@Khansuhai](https://github.com/Khansuhai)) | Creator and project owner - idea, requirements, live testing and tuning |
+| 2 | **Claude** (by [Anthropic](https://www.anthropic.com)) | AI assistant chatbot - helped write the code, tests and documentation |
 
 ## License
 
