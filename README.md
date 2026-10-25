@@ -107,7 +107,7 @@ flowchart LR
 
 ```bash
 # 1. Get the code
-git clone https://github.com/<your-username>/hand-gesture-control.git
+git clone https://github.com/Khansuhai/hand-gesture-control.git
 cd hand-gesture-control
 
 # 2. Create a virtual environment (keeps packages inside this folder)
