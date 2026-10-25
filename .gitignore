@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Virtual environment
+.venv/
+venv/
+
+# Downloaded MediaPipe model (auto-downloaded on first run)
+models/*.task
+models/*.part
+
+# Windows shortcuts (contain paths specific to one PC) and calibration backups
+*.lnk
+config.json.bak
+
+# Editors / OS
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store

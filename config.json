@@ -1,0 +1,177 @@
+{
+  "_readme": "Settings for hand-gesture-control. Every setting is explained in README.md (Configuration section).",
+  "camera": {
+    "index": 0,
+    "width": 640,
+    "height": 480,
+    "fps": 30,
+    "backend": "dshow",
+    "mirror": true
+  },
+  "tracking": {
+    "hand": "right",
+    "use_other_hand_if_missing": true,
+    "switch_delay_s": 0.3,
+    "max_hands": 2,
+    "min_detection_confidence": 0.6,
+    "min_presence_confidence": 0.5,
+    "min_tracking_confidence": 0.5,
+    "model_path": "models/hand_landmarker.task",
+    "model_url": "https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/latest/hand_landmarker.task"
+  },
+  "active_zone": {
+    "left": 0.2,
+    "right": 0.2,
+    "top": 0.12,
+    "bottom": 0.38
+  },
+  "smoothing": {
+    "min_cutoff": 1.0,
+    "beta": 0.005,
+    "d_cutoff": 1.0,
+    "offset_absorb": 0.4
+  },
+  "gestures": {
+    "stable_frames": 3,
+    "finger_extended_ratio": 1.15,
+    "thumb_extended_ratio": 0.5,
+    "thumb_up_min_alignment": 0.7,
+    "pinch_on_ratio": 0.25,
+    "pinch_off_ratio": 0.35,
+    "pinch_min_extension": 0.85,
+    "pinch_freeze_ratio": 0.4
+  },
+  "timing": {
+    "drag_hold_s": 0.4,
+    "double_click_window_s": 0.4,
+    "release_freeze_s": 0.25,
+    "hand_lost_grace_s": 0.3,
+    "hold_times_s": {
+      "thumbs_up": 0.7,
+      "fist": 1.0,
+      "open_palm": 1.0,
+      "thumbs_down": 0.8,
+      "rock": 0.6,
+      "pinky": 0.8
+    },
+    "cooldowns_s": {
+      "pinch": 0.15,
+      "double_pinch": 0.3,
+      "middle_pinch": 0.5,
+      "thumbs_up": 1.0,
+      "fist": 1.0,
+      "open_palm": 1.0,
+      "thumbs_down": 1.5,
+      "rock": 1.0,
+      "pinky": 1.5,
+      "swipe_left": 0.6,
+      "swipe_right": 0.6,
+      "swipe_up": 0.8,
+      "swipe_down": 0.8
+    },
+    "default_cooldown_s": 0.3
+  },
+  "scroll": {
+    "mode": "joystick",
+    "speed": 8.0,
+    "deadzone": 0.03,
+    "invert": false
+  },
+  "zoom": {
+    "mode": "joystick",
+    "speed": 3.0,
+    "deadzone": 0.03,
+    "invert": false
+  },
+  "rotate": {
+    "button": "middle",
+    "modifier": "none",
+    "speed": 1.0
+  },
+  "volume": {
+    "mode": "joystick",
+    "speed": 10.0,
+    "deadzone": 0.03,
+    "invert": false
+  },
+  "swipe": {
+    "min_distance": 0.22,
+    "max_time_s": 0.35,
+    "cooldown_s": 0.6
+  },
+  "two_hand": {
+    "speed": 4.0,
+    "invert": false
+  },
+  "gesture_actions": {
+    "point": "move",
+    "two_fingers": "scroll",
+    "three_fingers": "zoom",
+    "four_fingers": "rotate",
+    "call_me": "volume",
+    "two_hand_pinch": "zoom",
+    "pinch": "left_click",
+    "double_pinch": "double_click",
+    "pinch_hold": "drag",
+    "middle_pinch": "right_click",
+    "thumbs_up": "key:enter",
+    "fist": "pause",
+    "open_palm": "resume",
+    "swipe_left": "hotkey:alt+shift+tab",
+    "swipe_right": "hotkey:alt+tab",
+    "swipe_up": "hotkey:win+tab",
+    "swipe_down": "hotkey:win+d",
+    "rock": "key:playpause",
+    "thumbs_down": "hotkey:win+ctrl+o",
+    "pinky": "hotkey:win+shift+s"
+  },
+  "profiles": {
+    "browser": {
+      "match": [
+        "chrome.exe",
+        "msedge.exe",
+        "firefox.exe",
+        "brave.exe",
+        "opera.exe"
+      ],
+      "gesture_actions": {
+        "swipe_left": "hotkey:alt+left",
+        "swipe_right": "hotkey:alt+right"
+      }
+    },
+    "powerpoint": {
+      "match": [
+        "powerpnt.exe"
+      ],
+      "gesture_actions": {
+        "swipe_left": "key:left",
+        "swipe_right": "key:right"
+      }
+    },
+    "google_earth": {
+      "match": [
+        "googleearth.exe"
+      ],
+      "gesture_actions": {
+        "three_fingers": "scroll",
+        "two_hand_pinch": "scroll",
+        "swipe_left": "key:left",
+        "swipe_right": "key:right"
+      }
+    },
+    "blender": {
+      "match": [
+        "blender.exe"
+      ],
+      "gesture_actions": {
+        "three_fingers": "scroll",
+        "two_hand_pinch": "scroll"
+      }
+    }
+  },
+  "ui": {
+    "preview": true,
+    "window_scale": 1.0,
+    "show_debug": true
+  }
+}
